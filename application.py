@@ -1,6 +1,6 @@
 from tornado.web import Application, url
 from views.index import IndexHandler, ParamHandler, SetRequestHeader, SetStatusCode, ErrorHandler, ReverseHandler, \
-    SendJsonHandler, PathParams, FormParams, QueryParams, UpFileHandler, FinishHandler
+    SendJsonHandler, PathParams, FormParams, QueryParams, UpFileHandler, FinishHandler, CallOrderHandler
 from config import settings
 
 
@@ -18,6 +18,7 @@ class MyApplication(Application):
                     (r"/fp", FormParams),
                     (r"/qp", QueryParams),
                     (r"/uf", UpFileHandler),
-                    (r'/fh', FinishHandler)
+                    (r'/fh', FinishHandler),
+                    (r"/ch", CallOrderHandler),
                     ]
         super(MyApplication, self).__init__(handlers, **settings)

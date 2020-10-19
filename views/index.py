@@ -1,6 +1,7 @@
 from tornado.web import RequestHandler
 from config import UP_FILE_PATH
 
+
 class IndexHandler(RequestHandler):
     def get(self, *args, **kwargs):
         self.write("Index Page")
@@ -132,3 +133,28 @@ class FinishHandler(RequestHandler):
         self.write("location: JiangSu Province")
 
         self.finish()
+
+
+class CallOrderHandler(RequestHandler):
+    def initialize(self, *args, **kwargs):
+        print("initialize")
+
+    def prepare(self, *args, **kwargs):
+        print("prepare")
+
+    def get(self, *args, **kwargs):
+        self.write("调用执行顺序")
+        print("get")
+        self.send_error(500)
+
+    def write_error(self, status_code, **kwargs) -> None:
+        print("write error")
+
+    def on_finish(self) -> None:
+        print("on finish")
+
+    def set_default_headers(self) -> None:
+        print("set_header")
+
+    def set_status(self, status_code: int, reason: str = None) -> None:
+        print("set_status")
