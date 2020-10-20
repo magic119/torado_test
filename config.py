@@ -6,4 +6,5 @@ settings = {
     "debug": True,
     "template_path": os.path.join(BASE_DIR, "templates"),
     "static_path": os.path.join(BASE_DIR, "static"),
+    "static_hash_cache": False,
 }

@@ -4,7 +4,7 @@ from config import UP_FILE_PATH
 
 class IndexHandler(RequestHandler):
     def get(self, *args, **kwargs):
-        self.write("Index Page")
+        self.render("index.html")
 
 
 class ParamHandler(RequestHandler):
@@ -158,3 +158,9 @@ class CallOrderHandler(RequestHandler):
 
     def set_status(self, status_code: int, reason: str = None) -> None:
         print("set_status")
+
+    def set_header(self, name: str, value) -> None:
+        pass
+
+    def add_header(self, name: str, value) -> None:
+        pass
